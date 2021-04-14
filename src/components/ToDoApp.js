@@ -9,13 +9,20 @@ export default class ToDoApp extends React.Component {
         tasks: ["Do the dishes", "walk a dog", "pet a cat"]
     }
 
+    handleAddTask = (task) => {
+        this.setState((prev) => ({
+            tasks: [...prev.tasks, task]
+        }));
+    }
 
     render() {
         return (
             <div>
                 <Header />
                 <Tasks tasks={this.state.tasks} />
-                <AddNewTask/>
+                <AddNewTask
+                    onTaskAdded={this.handleAddTask}
+                />
             </div>
         )
     }
