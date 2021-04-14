@@ -1,5 +1,6 @@
 import React from "react";
 import Task from "./Task";
+import Task2 from "./Task";
 
 export default class Tasks extends React.Component {
 
@@ -12,6 +13,7 @@ export default class Tasks extends React.Component {
                         key={key}
                         task={element}
                         onTaskRemoved={this.props.onTaskRemoved}
+                        onTaskStatusChanged={this.props.onTaskStatusChanged}
                     />
                 })}
             </div>

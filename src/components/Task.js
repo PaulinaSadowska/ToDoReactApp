@@ -6,8 +6,12 @@ export default class Task extends React.Component {
         return (
             <div>
                 <p>
-                    <input type="checkbox" />
-                    {this.props.task}
+                    <input
+                        type="checkbox"
+                        checked={this.props.task.checked}
+                        onChange={() => this.props.onTaskStatusChanged(this.props.task)}
+                    />
+                    {this.props.task.name}
                     <button
                         onClick={() => { this.props.onTaskRemoved(this.props.task) }}
                     >

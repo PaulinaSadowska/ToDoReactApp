@@ -6,7 +6,10 @@ import Tasks from './Tasks'
 export default class ToDoApp extends React.Component {
 
     state = {
-        tasks: []
+        tasks: [
+            { name: "pet a cat", checked: false },
+            { name: "eat dinner", checked: true }
+        ]
     }
 
     componentDidMount = () => {
@@ -27,15 +30,25 @@ export default class ToDoApp extends React.Component {
     }
 
     handleAddTask = (task) => {
+        const newTask = { name: task, checked: false }
         this.setState((prev) => ({
-            tasks: [...prev.tasks, task]
+            tasks: [...prev.tasks, newTask]
         }));
     }
 
     handleTaskRemoved = (taskToRemove) => {
+        this.setState((prev) => ({
+            tasks: prev.tasks.filter((task) => task != taskToRemove)
+        }));
+    }
+
+    handleTaskStatusChanged = (taskToChange) => {
         this.setState((prev) => {
+            const changedIndex = prev.tasks.indexOf(taskToChange)
+            prev.tasks[changedIndex].checked = !taskToChange.checked
+            console.log(prev.tasks)
             return {
-                tasks: prev.tasks.filter((task) => task != taskToRemove)
+                tasks: prev.tasks
             }
         });
     }
@@ -47,6 +60,7 @@ export default class ToDoApp extends React.Component {
                 <Tasks
                     tasks={this.state.tasks}
                     onTaskRemoved={this.handleTaskRemoved}
+                    onTaskStatusChanged={this.handleTaskStatusChanged}
                 />
                 <AddNewTask
                     onTaskAdded={this.handleAddTask}
