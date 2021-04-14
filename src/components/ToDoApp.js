@@ -15,11 +15,22 @@ export default class ToDoApp extends React.Component {
         }));
     }
 
+    handleTaskRemoved = (taskToRemove) => {
+        this.setState((prev) => {
+            return {
+                tasks: prev.tasks.filter((task) => task != taskToRemove)
+            }
+        });
+    }
+
     render() {
         return (
             <div>
                 <Header />
-                <Tasks tasks={this.state.tasks} />
+                <Tasks
+                    tasks={this.state.tasks}
+                    onTaskRemoved={this.handleTaskRemoved}
+                />
                 <AddNewTask
                     onTaskAdded={this.handleAddTask}
                 />
