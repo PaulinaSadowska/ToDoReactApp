@@ -6,7 +6,24 @@ import Tasks from './Tasks'
 export default class ToDoApp extends React.Component {
 
     state = {
-        tasks: ["Do the dishes", "walk a dog", "pet a cat"]
+        tasks: []
+    }
+
+    componentDidMount = () => {
+        try {
+            const saved = JSON.parse(localStorage.getItem("tasks"))
+            if (saved) {
+                this.setState(() => ({ tasks: saved }))
+            }
+        } catch (e) {
+            console.log("error while restoring saved state x.x", e)
+        }
+    }
+
+    componentDidUpdate(prevProp, prevState) {
+        if (this.state.tasks.length != prevState.tasks.length) {
+            localStorage.setItem("tasks", JSON.stringify(this.state.tasks))
+        }
     }
 
     handleAddTask = (task) => {
