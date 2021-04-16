@@ -4,18 +4,29 @@ import Task2 from "./Task";
 
 export default class Tasks extends React.Component {
 
-    render() {
-        return (
-            <div>
-                <button>Show completed</button>
-                {this.props.tasks.map((element, key) => {
+    renderTasks = () => {
+        return this.props.tasks
+            .map((task, key) => {
+                if (!this.props.showCompleted || !task.completed) {
                     return <Task
                         key={key}
-                        task={element}
+                        task={task}
                         onTaskRemoved={this.props.onTaskRemoved}
                         onTaskStatusChanged={this.props.onTaskStatusChanged}
                     />
-                })}
+                }
+            })
+    }
+
+    render() {
+        return (
+            <div>
+                <button
+                    onClick={this.props.onToggleShowCompleted}
+                >
+                    {(this.props.showCompleted) ? "Show completed" : "Hide completed"}
+                </button>
+                {this.renderTasks()}
             </div>
         )
     }

@@ -8,7 +8,7 @@ export default class Task extends React.Component {
                 <p>
                     <input
                         type="checkbox"
-                        checked={this.props.task.checked}
+                        checked={this.props.task.completed}
                         onChange={() => this.props.onTaskStatusChanged(this.props.task)}
                     />
                     {this.props.task.name}

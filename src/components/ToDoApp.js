@@ -6,9 +6,16 @@ import Tasks from './Tasks'
 export default class ToDoApp extends React.Component {
 
     state = {
+        showCompleted: false,
         tasks: [
-            { name: "pet a cat", checked: false },
-            { name: "eat dinner", checked: true }
+            { 
+                name: "pet a cat", 
+                completed: false 
+            },
+            { 
+                name: "eat dinner", 
+                completed: true 
+            }
         ]
     }
 
@@ -30,7 +37,7 @@ export default class ToDoApp extends React.Component {
     }
 
     handleAddTask = (task) => {
-        const newTask = { name: task, checked: false }
+        const newTask = { name: task, completed: false }
         this.setState((prev) => ({
             tasks: [...prev.tasks, newTask]
         }));
@@ -42,15 +49,21 @@ export default class ToDoApp extends React.Component {
         }));
     }
 
+    // very ugly, fix me!
     handleTaskStatusChanged = (taskToChange) => {
         this.setState((prev) => {
             const changedIndex = prev.tasks.indexOf(taskToChange)
-            prev.tasks[changedIndex].checked = !taskToChange.checked
-            console.log(prev.tasks)
+            prev.tasks[changedIndex].completed = !taskToChange.completed
             return {
                 tasks: prev.tasks
             }
         });
+    }
+
+    handleToggleShowCompleted = () => {
+        this.setState((prev) => ({
+            showCompleted: !prev.showCompleted
+        }));
     }
 
     render() {
@@ -61,6 +74,8 @@ export default class ToDoApp extends React.Component {
                     tasks={this.state.tasks}
                     onTaskRemoved={this.handleTaskRemoved}
                     onTaskStatusChanged={this.handleTaskStatusChanged}
+                    onToggleShowCompleted = {this.handleToggleShowCompleted}
+                    showCompleted = {this.state.showCompleted}
                 />
                 <AddNewTask
                     onTaskAdded={this.handleAddTask}
