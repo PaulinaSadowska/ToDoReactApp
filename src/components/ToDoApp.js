@@ -8,13 +8,13 @@ export default class ToDoApp extends React.Component {
     state = {
         showCompleted: false,
         tasks: [
-            { 
-                name: "pet a cat", 
-                completed: false 
+            {
+                name: "pet a cat",
+                completed: false
             },
-            { 
-                name: "eat dinner", 
-                completed: true 
+            {
+                name: "eat dinner",
+                completed: true
             }
         ]
     }
@@ -68,14 +68,16 @@ export default class ToDoApp extends React.Component {
 
     render() {
         return (
-            <div>
+            <div
+                className='desk'
+            >
                 <Header />
                 <Tasks
                     tasks={this.state.tasks}
                     onTaskRemoved={this.handleTaskRemoved}
                     onTaskStatusChanged={this.handleTaskStatusChanged}
-                    onToggleShowCompleted = {this.handleToggleShowCompleted}
-                    showCompleted = {this.state.showCompleted}
+                    onToggleShowCompleted={this.handleToggleShowCompleted}
+                    showCompleted={this.state.showCompleted}
                 />
                 <AddNewTask
                     onTaskAdded={this.handleAddTask}

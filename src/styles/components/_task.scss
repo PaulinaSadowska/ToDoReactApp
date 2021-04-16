@@ -1,0 +1,23 @@
+.task {
+  border-bottom: 0.1rem solid $divider;
+  padding: 0 $m-size;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task__text {
+  word-break: break-all;
+  text-align: center;
+  padding-left: $s-size;
+  font-size: $m-size;
+  font-weight: 200;
+}
+
+.task__checkbox {
+  border: none;
+}
+
+.task__innercontainer {
+  display: flex;
+  align-items: center;
+}

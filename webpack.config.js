@@ -12,6 +12,14 @@ module.exports = {
                 loader: 'babel-loader',
                 test: /\.js$/,
                 exclude: /node_modules/
+            },
+            {
+                test: /\.s?css$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
         ]
     },
@@ -20,5 +28,10 @@ module.exports = {
         contentBase: path.join(__dirname, "public"),
         compress: true,
         port: 9000,
+    },
+    resolve: {
+        fallback: {
+          util: require.resolve("util/")
+        }
     }
 };

@@ -1,0 +1,19 @@
+.button {
+  background: none;
+  border-radius: 25px;
+  margin: $s-size 0 $s-size $s-size;
+  font-size: $s-size;
+  padding: $xxs-size;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.button--red {
+  border: 0.18rem solid $accent-red;
+  color: $accent-red;
+}
+
+.button--green {
+  border: 0.18rem solid $accent-green;
+  color: $accent-green;
+}

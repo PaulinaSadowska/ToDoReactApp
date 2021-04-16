@@ -1,6 +1,5 @@
 import React from "react";
 import Task from "./Task";
-import Task2 from "./Task";
 
 export default class Tasks extends React.Component {
 
@@ -23,6 +22,7 @@ export default class Tasks extends React.Component {
             <div>
                 <button
                     onClick={this.props.onToggleShowCompleted}
+                    className='button--green button'
                 >
                     {(this.props.showCompleted) ? "Show completed" : "Hide completed"}
                 </button>

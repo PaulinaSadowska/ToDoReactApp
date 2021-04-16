@@ -6,7 +6,7 @@ export default class AddNewTask extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const task = e.target.elements.task.value.trim()
-        if(task){
+        if (task) {
             this.props.onTaskAdded(task)
             e.target.elements.task.value = ""
         } else {
@@ -20,11 +20,13 @@ export default class AddNewTask extends React.Component {
                 <form
                     onSubmit={this.handleSubmit}
                 >
-                    <input 
-                    type="text" 
-                    name="task"
+                    <input
+                        type="text"
+                        name="task"
                     />
-                    <button>Add</button>
+                    <button
+                        className='button--green button'
+                    >Add</button>
                 </form>
             </div>
         )
