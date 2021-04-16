@@ -16,19 +16,19 @@ export default class AddNewTask extends React.Component {
 
     render() {
         return (
-            <div>
-                <form
-                    onSubmit={this.handleSubmit}
-                >
-                    <input
-                        type="text"
-                        name="task"
-                    />
-                    <button
-                        className='button--green button'
-                    >Add</button>
-                </form>
-            </div>
+            <form
+                onSubmit={this.handleSubmit}
+                className='input__container'
+            >
+                <input
+                    type="text"
+                    name="task"
+                    className="input"
+                />
+                <button
+                    className='button--green button'
+                >Add</button>
+            </form>
         )
     }
 }

@@ -1,0 +1,19 @@
+.input__container {
+  flex-direction: row;
+  display: flex;
+  padding: 0 $m-size 0 $m-size;
+}
+
+.input {
+  flex-grow: 1;
+  border: 0.1rem solid $divider;
+  border-radius: 25px;
+  margin: $s-size 0 $s-size 0;
+  color: $text-secondary;
+  padding: $xxs-size;
+  font-size: $m-size;
+}
+
+.input:focus{
+    outline: none;
+}

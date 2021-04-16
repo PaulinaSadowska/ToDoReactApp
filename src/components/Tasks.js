@@ -22,7 +22,7 @@ export default class Tasks extends React.Component {
             <div>
                 <button
                     onClick={this.props.onToggleShowCompleted}
-                    className='button--green button'
+                    className='button--link button'
                 >
                     {(this.props.showCompleted) ? "Show completed" : "Hide completed"}
                 </button>

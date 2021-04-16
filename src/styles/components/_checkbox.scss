@@ -1,21 +1,31 @@
 .regular-checkbox {
 	-webkit-appearance: none;
-	background-color: #fafafa;
-	border: 1px solid #cacece;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	background-color: $desk;
+	border: 1px solid $divider;
+	border-radius: 30px;
+	width: $l-size;
+	height: $l-size;
 	padding: 9px;
-	border-radius: 3px;
 	display: inline-block;
 	position: relative;
 }
 
-.regular-checkbox:active, .regular-checkbox:checked:active {
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+.regular-checkbox:checked {
+	background-color: $desk;
+	border: 1.5px solid $accent-green;
+	color: $accent-red;
 }
 
-.regular-checkbox:checked {
-	background-color: #e9ecee;
-	border: 1px solid #adb8c0;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
-	color: #99a1a7;
+.regular-checkbox:focus{
+    outline: none;
+}
+
+.regular-checkbox:checked:after {
+	content: '\2713';
+	font-size: $xl-size;
+	font-weight: 50;
+	position: absolute;
+	top: -20px;
+	left: -2px;
+	color: $accent-green;
 }

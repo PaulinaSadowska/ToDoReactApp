@@ -72,15 +72,15 @@ export default class ToDoApp extends React.Component {
                 className='desk'
             >
                 <Header />
+                <AddNewTask
+                onTaskAdded={this.handleAddTask}
+            />
                 <Tasks
                     tasks={this.state.tasks}
                     onTaskRemoved={this.handleTaskRemoved}
                     onTaskStatusChanged={this.handleTaskStatusChanged}
                     onToggleShowCompleted={this.handleToggleShowCompleted}
                     showCompleted={this.state.showCompleted}
-                />
-                <AddNewTask
-                    onTaskAdded={this.handleAddTask}
                 />
             </div>
         )
